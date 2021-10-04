@@ -40,9 +40,9 @@ export const RecipeState = ({ children }) => {
     setLoading(false);
   };
 
-  //   useEffect(()=>{
-  //     getFirstRsult()
-  //   },[])
+  useEffect(() => {
+    getFirstRsult();
+  }, []);
 
   return (
     <RecipesContext.Provider value={{}}>{children}</RecipesContext.Provider>
