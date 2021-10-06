@@ -9,7 +9,7 @@ export const RecipeState = ({ children }) => {
   const [search, setSearch] = useState("");
   const [firstRecipe, setFirstRecipe] = useState(0);
   const [lastRecipe, setLastRecipe] = useState(9);
-  const [hidden, setHidden] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -40,11 +40,30 @@ export const RecipeState = ({ children }) => {
     setLoading(false);
   };
 
-  useEffect(() => {
-    getFirstRsult();
-  }, []);
+  const getRecipes = (e) => {
+    e.preventDefault();
+    if (search.trim() === "") return;
+    setIsHidden(true);
+    searchRecipes();
+  };
+
+  //   useEffect(() => {
+  //     getFirstRsult();
+  //   }, []);
 
   return (
-    <RecipesContext.Provider value={{}}>{children}</RecipesContext.Provider>
+    <RecipesContext.Provider
+      value={{
+        recipes,
+        getRecipes,
+        search,
+        setSearch,
+        isHidden,
+        error,
+        loading,
+      }}
+    >
+      {children}
+    </RecipesContext.Provider>
   );
 };
