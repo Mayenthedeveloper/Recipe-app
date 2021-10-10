@@ -1,10 +1,10 @@
-import { Children, useEffect } from "react";
-import { createContext } from "vm";
+// import { Children, useEffect } from "react";
+// import { createContext } from "vm";
 import React, { useState, useEffect, createContext } from "react";
 
 export const RecipesContext = createContext();
 
-export const RecipeState = ({ children }) => {
+export const RecipesState = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [firstRecipe, setFirstRecipe] = useState(0);
