@@ -20,7 +20,7 @@ export const RecipesState = ({ children }) => {
     setLoading(true);
     const response = await fetch(FIRST_REQ);
     const data = await response.json();
-    setRecipes(data);
+    setRecipes(data.hits);
     setLoading(false);
   };
 
@@ -45,9 +45,9 @@ export const RecipesState = ({ children }) => {
     searchRecipes();
   };
 
-  //   useEffect(() => {
-  //     getFirstRsult();
-  //   }, []);
+  useEffect(() => {
+    getFirstRsult();
+  }, []);
 
   return (
     <RecipesContext.Provider

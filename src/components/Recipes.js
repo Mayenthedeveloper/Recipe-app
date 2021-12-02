@@ -25,6 +25,11 @@ const Recipes = () => {
                   className="recipesBg"
                 ></div>
               </a>
+              <div className="recipeInfo">
+                <p>{recipe.recipe.label}</p>
+                <p>{Math.floor(recipe.recipe.calories)} calories</p>
+                <Link to="/">View More</Link>
+              </div>
             </div>
           ))}
       </>
